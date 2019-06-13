@@ -1,5 +1,5 @@
 from keras.datasets import mnist
-from autokeras.image.image_supervised import ImageClassifier
+from autokeras.image.image_supervised import ImageClassifier, Constant
 from autokeras.utils import pickle_to_file
 
 import os
@@ -7,6 +7,14 @@ import tensorflow as tf
 os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
+
+from tensorflow.python.client import device_lib 
+print(device_lib.list_local_devices())
+
+# Constant.MAX_ITER_NUM = 1
+Constant.MAX_MODEL_NUM = 1
+# Constant.MAX_NO_IMPROVEMENT_NUM = 1
+Constant.SEARCH_MAX_ITER = 1
 
 
 if __name__ == '__main__':
@@ -25,8 +33,7 @@ if __name__ == '__main__':
 
     # alternative
     best_model = clf.cnn.best_model.produce_model()
-    pickle_to_file(best_model, 'output/autokeras_best_model')
-
+    # pickle_to_file(best_model, 'output/autokeras_best_model')
     print(best_model)
 
 # Step 2 : After the model training is complete, run examples/visualize.py, whilst passing the same path as parameter
