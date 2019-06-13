@@ -60,7 +60,7 @@ X_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
 batch_size = 64
 
 num_classes = 10
-epochs = 20
+epochs = 40
 input_shape = (28, 28, 1)
 
 # convert class vectors to binary class matrices One Hot Encoding
