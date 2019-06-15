@@ -4,6 +4,9 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import keras.callbacks as kcb
 
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = "1"
+
 model_checkpoint = kcb.ModelCheckpoint(
     filepath='output/keras-weights.{epoch:02d}-{val_loss:.2f}.hdf5', monitor='val_loss')
 
