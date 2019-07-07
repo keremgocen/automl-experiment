@@ -11,12 +11,11 @@ https://www.tensorflow.org/install/source#tested_build_configurations
 https://github.com/NVIDIA/nvidia-docker
 `docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi`
 
-
 #### Build
 `docker build . -t keremgocen/automl:latest --build-arg USE_PYTHON_3_NOT_2=True`
 
 #### Run
-`docker run -it --rm -p 8888:8888 keremgocen/automl`
+`docker run -v $(pwd):/tf -it --rm -p 8888:8888 keremgocen/automl`
 
 Use the token in terminal to login jupyter
 ```

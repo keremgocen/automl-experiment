@@ -1,4 +1,6 @@
 .vscode
 cifar10/output
 cifar10/.ipynb_checkpoints
-mnist/output/*
+mnist/output
+mnist/.ipynb_checkpoints
+

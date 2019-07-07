@@ -4,11 +4,11 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import keras.callbacks as kcb
 
-import os
-os.environ['CUDA_VISIBLE_DEVICES'] = "1"
+# import os
+# os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 
 model_checkpoint = kcb.ModelCheckpoint(
-    filepath='output/keras-weights.{epoch:02d}-{val_loss:.2f}.hdf5', monitor='val_loss')
+    filepath='keras-weights.{epoch:02d}-{val_loss:.2f}.hdf5', monitor='val_loss')
 
 # early stopping
 # early_stop = kcb.EarlyStopping(monitor='val_acc',
@@ -68,8 +68,8 @@ print("%s: %.2f%%" % (model.metrics_names[1], final_acc*100))
 
 # serialize model to JSON
 model_json = model.to_json()
-with open('output/keras-model.epoch-{0:02d}-loss-{1:.2f}-acc-{2:.2f}.hdf5'.format(epochs, final_loss, final_acc), 'w') as json_file:
+with open('keras-model.epoch-{0:02d}-loss-{1:.2f}-acc-{2:.2f}.hdf5'.format(epochs, final_loss, final_acc), 'w') as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-# model.save_weights("weights.{epoch:02d}-{val_loss:.2f}.hdf5")
+model.save_weights("keras-final-weights.epoch-{0:02d}-loss-{1:.2f}.hdf5".format(epochs, final_loss))
 print("Saved model to disk")

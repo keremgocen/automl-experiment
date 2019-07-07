@@ -95,6 +95,7 @@ RUN chmod a+rwx /etc/bash.bashrc
 
 RUN ${PIP} install jupyter matplotlib
 RUN ${PIP} install jupyter_http_over_ws
+RUN ${PIP} install keras
 RUN jupyter serverextension enable --py jupyter_http_over_ws
 
 RUN mkdir -p /tf/tensorflow-tutorials && chmod -R a+rwx /tf/
