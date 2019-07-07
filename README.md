@@ -22,3 +22,6 @@ Use the token in terminal to login jupyter
 $The Jupyter Notebook is running at:
 $http://(f741b4528f3e or 127.0.0.1):8888/?token=188590c09964723af497d3900d3f4814195cc18e40f42243
 ```
+
+##### autokeras constants
+https://www.simonwenkel.com/2018/09/04/autokeras-constants.html
